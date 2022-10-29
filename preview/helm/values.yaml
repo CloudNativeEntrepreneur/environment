@@ -1,3 +1,4 @@
-pr:
-headRef:
-tag:
+name: change-me
+pr: pr-0
+headRef: HEAD
+tag: latest

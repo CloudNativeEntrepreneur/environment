@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ${{ github.event.repository.name }}-{{ .Values.pr }}-preview
+  name: {{ .Values.name }}-{{ .Values.pr }}-preview
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -17,7 +17,7 @@ spec:
         image:
           tag: {{ .Values.tag }}
   destination:
-    namespace: ${{ github.event.repository.name }}-{{ .Values.pr }}-preview
+    namespace: {{ .Values.name }}-{{ .Values.pr }}-preview
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
