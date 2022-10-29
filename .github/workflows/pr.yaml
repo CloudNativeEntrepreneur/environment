@@ -54,6 +54,7 @@ jobs:
         ls -la 
         ls -la previews
         mkdir -p previews/helm/templates
+        rm previews/helm/templates/${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}.yaml
         helm template preview/helm/ \
           --set pr=pr-${{ github.event.pull_request.number }} \
           --set tag=pr-${{ github.event.pull_request.number }}-${{ github.sha }} \
