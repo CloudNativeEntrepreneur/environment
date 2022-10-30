@@ -1,2 +1,4 @@
 imagePullSecrets:
-  - name:  ghcr
+  - name: ghcr
+image:
+  tag: v0.2.0
