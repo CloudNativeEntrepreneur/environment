@@ -90,11 +90,13 @@ jobs:
         body: |
           Your preview environment has been published! :rocket:
 
-          It may take a few minutes to spin up, but you can view it here once it's ready: [${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview](http://${{ github.event.repository.name }}.${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview.127.0.0.1.sslip.io)
+          It may take a few minutes to spin up.
 
-          You can verify the PR is ready with `kubectl`:
+          You can view the Preview contents with `kubectl`:
 
           ```bash
-          kubectl get ksvc -n ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
+          kubectl get ns ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
+          kubectl get sa -n ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
+          kubectl get externalsecret -n ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
           ```
         edit-mode: replace
