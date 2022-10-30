@@ -22,10 +22,3 @@ spec:
       prune: true
     syncOptions:
       - CreateNamespace=true
-
----
-
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: test-{{ .Values.pr }}-preview
