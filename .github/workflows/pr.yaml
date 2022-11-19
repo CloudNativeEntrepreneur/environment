@@ -26,14 +26,14 @@ jobs:
     with:
       environment_repository: CloudNativeEntrepreneur/example-preview-envs
       comment: |
-          Your preview environment has been published! :rocket:
+        Your preview environment has been published! :rocket:
 
-          It may take a few minutes to spin up.
+        It may take a few minutes to spin up.
 
-          You can view the Preview contents with `kubectl`:
+        You can view the Preview contents with `kubectl`:
 
-          ```bash
-          kubectl get ns ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
-          kubectl get sa -n ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
-          kubectl get externalsecret -n ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
-          ```
+        ```bash
+        kubectl get ns ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
+        kubectl get sa -n ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
+        kubectl get externalsecret -n ${{ github.event.repository.name }}-pr-${{ github.event.pull_request.number }}-preview
+        ```
