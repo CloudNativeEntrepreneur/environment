@@ -5,15 +5,17 @@ on:
     - main
 jobs:
 
-  quality:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - uses: azure/setup-helm@v3
-    - run: |
-        helm lint helm
-        helm lint preview/helm
+  helm-quality:
+    uses: CloudNativeEntrepreneur/actions/.github/workflows/helm-quality.yaml@main
+    secrets: inherit
+    with:
+      helm_path: helm
+  
+  preview-helm-quality:
+    uses: CloudNativeEntrepreneur/actions/.github/workflows/helm-quality.yaml@main
+    secrets: inherit
+    with:
+      helm_path: preview/helm
 
   release:
     uses: CloudNativeEntrepreneur/actions/.github/workflows/github-release.yaml@main
