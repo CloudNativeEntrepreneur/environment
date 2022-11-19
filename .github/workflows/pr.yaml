@@ -9,13 +9,13 @@ on:
 jobs:
 
   helm-quality:
-    uses: CloudNativeEntrepreneur/actions/.github/workflows/github-release.yaml@main
+    uses: CloudNativeEntrepreneur/actions/.github/workflows/helm-quality.yaml@main
     secrets: inherit
     with:
       helm_path: helm
   
   preview-helm-quality:
-    uses: CloudNativeEntrepreneur/actions/.github/workflows/github-release.yaml@main
+    uses: CloudNativeEntrepreneur/actions/.github/workflows/helm-quality.yaml@main
     secrets: inherit
     with:
       helm_path: preview/helm
