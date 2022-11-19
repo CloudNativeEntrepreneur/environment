@@ -21,7 +21,7 @@ jobs:
       helm_path: preview/helm
 
   preview:
-    uses: CloudNativeEntrepreneur/actions/.github/workflows/github-release.yaml@main
+    uses: CloudNativeEntrepreneur/actions/.github/workflows/gitops-preview.yaml@main
     secrets: inherit
     with:
       environment_repository: CloudNativeEntrepreneur/example-preview-envs
