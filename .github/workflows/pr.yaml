@@ -8,24 +8,20 @@ on:
 
 jobs:
 
-  quality:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-    
-    - uses: actions/checkout@v3
-    - uses: azure/setup-helm@v3
-    - run: |
-        helm lint helm
-        helm lint preview/helm
+  helm-quality:
+    uses: CloudNativeEntrepreneur/actions/.github/workflows/github-release.yaml@main
+    secrets: inherit
+    with:
+      helm_path: helm
+  
+  preview-helm-quality:
+    uses: CloudNativeEntrepreneur/actions/.github/workflows/github-release.yaml@main
+    secrets: inherit
+    with:
+      helm_path: preview/helm
 
   preview:
-    needs: quality
+    needs: helm-quality
     runs-on: ubuntu-latest
 
     permissions:
