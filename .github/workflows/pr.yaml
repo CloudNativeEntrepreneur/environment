@@ -21,6 +21,9 @@ jobs:
       helm_path: preview/helm
 
   preview:
+    needs:
+    - helm-quality
+    - preview-helm-quality
     uses: CloudNativeEntrepreneur/actions/.github/workflows/gitops-preview.yaml@main
     secrets: inherit
     with:
